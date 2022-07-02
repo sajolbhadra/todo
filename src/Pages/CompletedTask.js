@@ -4,7 +4,8 @@ import { Container } from 'react-bootstrap';
 const CompletedTask = () => {
     const [completedTasks, setCompletedTasks] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/completed-task')
+        // fetch('http://localhost:5000/completed-task')
+        fetch('https://lower-loonie-95654.herokuapp.com/completed-task')
             .then(res => res.json())
             .then(data => setCompletedTasks(data));
     }, [setCompletedTasks])

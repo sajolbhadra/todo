@@ -7,6 +7,7 @@ import CompletedTask from './Pages/CompletedTask';
 import Calender from './Pages/Calender';
 import Navigation from './Pages/Home/Navigation';
 import Footer from './Pages/Footer';
+import EditTask from './Pages/EditTask';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path='/home' element={<Home></Home>}></Route>
         <Route path='/to-do' element={<Todo></Todo>}></Route>
         <Route path='/task-completed' element={<CompletedTask></CompletedTask>}></Route>
+        <Route path='/edit-task/:id' element={<EditTask></EditTask>}></Route>
         <Route path='/calendar' element={<Calender></Calender>}></Route>
       </Routes>
       <Footer></Footer>
