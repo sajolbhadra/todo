@@ -59,24 +59,27 @@ const Todo = () => {
                 console.log('success', data)
                 alert('Task Added Succesfully')
                 event.target.reset();
+                document.location.reload();
             })
 
     }
     const handleCompletedTask = (_id) => {
         //send data to server
-        // fetch(`http://localhost:5000/${_id}`, {
+        const completedTasks = tasks.find(task=> task._id === _id).task; 
+        const completedTasksObject = {completedTasks}
+        // fetch(`http://localhost:5000/completed-task`, {
         fetch('https://lower-loonie-95654.herokuapp.com/completed-task', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify(tasks.task)
+            body: JSON.stringify(completedTasksObject)
         })
             .then(res => res.json())
             .then(data => {
                 console.log('success', data)
                 alert('Task Completed Successfully')
-            })
+            });
         // const url = `http://localhost:5000/task/${_id}`;
         const url = `https://lower-loonie-95654.herokuapp.com/task/${_id}`;
         fetch(url, {
@@ -87,6 +90,7 @@ const Todo = () => {
                 console.log(data)
             })
         console.log('deleteing ', _id)
+        document.location.reload();
 
     }
 
